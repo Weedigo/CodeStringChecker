@@ -1,16 +1,25 @@
-public class CodeWordChecker implements StringChecker{
-    private int maximum;
-    private int minimum;
-    private String keyword;
-    public CodeWordChecker(int maximum, int minimum, String keyword){
-        this.maximum = maximum;
-        this.minimum = minimum;
-        this.keyword = keyword;
+public class CodeWordChecker implements StringChecker {
+    private int min;
+    private int max;
+    private String keyWord;
+
+    public CodeWordChecker(int min, int max, String keyWord) {
+        this.min = min;
+        this.max = max;
+        this.keyWord = keyWord;
     }
-    public CodeWordChecker(String Keyword){
-        this.keyword = keyword;
-        this.minimum = 6;
-        this.maximum = 20;
+
+    public CodeWordChecker(String keyWord) {
+        this.min = 6;
+        this.max = 20;
+        this.keyWord = keyWord;
+    }
+
+    public boolean isValid(String str) {
+        if (str.length() < min || str.length() > max || str.indexOf(this.keyWord) > -1) {
+            return false;
+        }
+        return true;
     }
 }
 
